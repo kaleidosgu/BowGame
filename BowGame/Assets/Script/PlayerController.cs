@@ -76,19 +76,21 @@ public class PlayerController : NetworkBehaviour {
     {
         if( isLocalPlayer )
         {
-            bool bJump = CrossPlatformInputManager.GetButtonDown("Fire1");
-            bool bShoot = CrossPlatformInputManager.GetButtonDown("Fire2");
+            bool bJump = Input.GetButtonDown("Fire1");
+            bool bShoot = Input.GetButtonDown("Fire2");
 
 
             if (bJump)
             {
                 //playerRig.gravityScale *= -1;
                 //CmdRotateIt();
+                RequestJump();
             }
 
             if (bShoot)
             {
                 //CmdShoot(currentIndex);
+                RequestShoot();
             }
         }
     }
