@@ -38,9 +38,14 @@ public class BulletMovement : NetworkBehaviour {
             PlayerController player = collision.gameObject.GetComponent<PlayerController>();
             if (player != null)
             {
+                int nTargetIndex = player.GetCurrentIndex();
                 if (player.GetCurrentIndex() != ownerIndex)
                 {
-                    //todo击中加分
+                    ServerManager mgr = FindObjectOfType<ServerManager>();
+                    if(mgr != null)
+                    {
+                        mgr.PlayerHit(ownerIndex, nTargetIndex);
+                    }
                     Destroy(gameObject);
                 }
             }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : NetworkBehaviour {
@@ -125,5 +126,18 @@ public class PlayerController : NetworkBehaviour {
     public int GetCurrentIndex()
     {
         return currentIndex;
+    }
+
+    [ClientRpc]
+    public void RpcUpdateScore( int nRight, int nLeft )
+    {
+        ScoreSystem scoreSys = FindObjectOfType<ScoreSystem>();
+        Text txtScore = scoreSys.GetComponent<Text>();
+        if(txtScore != null)
+        {
+            string str = "";
+            str = string.Format("{0}:{1}", nRight, nLeft);
+            txtScore.text = str;
+        }
     }
 }
