@@ -82,19 +82,26 @@ public class PlayerController : NetworkBehaviour {
 
             if (bJump)
             {
-                playerRig.gravityScale *= -1;
-                //transform.Rotate(Vector3.forward, 180);
-                //transform.Rotate(Vector3.up, 180);
-                CmdRotateIt();
+                //playerRig.gravityScale *= -1;
+                //CmdRotateIt();
             }
 
             if (bShoot)
             {
-                CmdShoot(currentIndex);
+                //CmdShoot(currentIndex);
             }
         }
     }
 
+    public void RequestJump()
+    {
+        playerRig.gravityScale *= -1;
+        CmdRotateIt();
+    }
+    public void RequestShoot()
+    {
+        CmdShoot(currentIndex);
+    }
     [Command]
     private void CmdShoot(int nCurrentIndex)
     {
