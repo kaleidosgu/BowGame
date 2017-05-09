@@ -6,10 +6,13 @@ public class FlyingPlatform : NetworkBehaviour {
 
     public float speed;
     public Vector3 moveDirection;
+    
 	// Use this for initialization
 	void Start () {
-		
-	}
+        //SpriteRenderer spriteRender = GetComponent<SpriteRenderer>();
+        //spriteRender.sprite = testSprite;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
