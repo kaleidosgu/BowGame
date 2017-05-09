@@ -23,4 +23,16 @@ public class RailwayRules : MonoBehaviour {
             flyObj.ChangeDirection(vecChangeDir);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if( collision.collider.tag == "Player" )
+        {
+            int a = 0;
+        }
+        else if (collision.collider.tag == "StingObject")
+        {
+            int a = 0;
+        }
+    }
 }
